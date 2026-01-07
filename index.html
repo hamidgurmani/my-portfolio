@@ -839,9 +839,13 @@
   name="contact"
   method="POST"
   data-netlify="true"
+  netlify-honeypot="bot-field"
   class="contact__form grid"
 >
+  <!-- Hidden field for Netlify -->
   <input type="hidden" name="form-name" value="contact">
+  <!-- Honeypot field to prevent spam -->
+  <input type="hidden" name="bot-field">
 
   <div class="contact__inputs grid">
     <div class="contact__content">
@@ -867,6 +871,7 @@
     </button>
   </div>
 </form>
+
 
         </div>
       </section>
