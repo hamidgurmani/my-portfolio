@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  portfolio:
+    build: .
+    container_name: portfolio-site
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/usr/share/nginx/html
+    depends_on:
+      - backend
+    restart: always
+
+  backend:
+    build: ./backend
+    container_name: portfolio-backend
+    volumes:
+      - ./backend/app/data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:///./data/portfolio.db
+    restart: always
